@@ -1,59 +1,30 @@
-const express = require("express")
+
+const express = require('express');
+
 const app = express();
+let requestCount = 0;
 
-app.use(express.json());
-
-let todos = [];
-
-//post a todo
-app.post('/', function (req, res) {
-
-    const newTodo = { // newtodo is an object which has ID and title as feilds 
-        id: parseInt(req.body.id),
-        title: req.body.title
-    }
-
-    todos.push(newTodo);
-    res.status(201).json({ Message: "new todo added", todo: newTodo })
+app.use(function (req, res, next) {
+    requestCount = requestCount + 1;
+    next();
 })
 
-app.get('/', function (req, res) {
+// You have been given an express server which has a few endpoints.
+// Your task is to create a global middleware (app.use) which will
+// maintain a count of the number of requests made to the server in the global
+// requestCount variable
 
-    res.json(todos)
-})
-
-app.get('/:id', function (req, res) {
-
-    const id = parseInt(req.params.id)
-    const todo = todos.find(t => t.id === id);
-
-    if (!todo) return res.status(400).json({ Message: "todo not found" });
-    res.json(todo)
-})
-
-app.patch('/:id', function (req, res) {
-
-    const id = parseInt(req.params.id)
-    const todo = todos.find(t => t.id === id);
-
-    if (!todo) return res.status(400).json({ Message: "todo not found" });
-    if (req.body.title !== undefined) { todo.title = req.body.title; }
-    res.json({ message: "todo updated!!" })
-
+app.get('/user', function (req, res) {
+    res.status(200).json({ name: 'john' });
 });
 
-app.delete('/:id', function (req, res) {
-
-    const id = parseInt(req.params.id)
-    const todo = todos.find(t => t.id === id);
-
-    if (!todo) return res.status(400).json({ Message: "todo not found" });
-    todos = todos.filter(t => t.id !== id);
-
-    res.json({ message: "todo deleted" })
-
+app.post('/user', function (req, res) {
+    res.status(200).json({ msg: 'created dummy user' });
 });
 
-app.listen(3000, () => {
-    console.log("app is live on local host 3000")
-})
+app.get('/requestCount', function (req, res) {
+    res.status(200).json({ requestCount });
+});
+
+app.listen(3000);
+module.exports = app;
