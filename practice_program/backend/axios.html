@@ -10,6 +10,7 @@
     <script>
         async function fetchPosts() {
             const res = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+
             document.getElementById("posts").innerHTML = res.data.title;
         }
 
