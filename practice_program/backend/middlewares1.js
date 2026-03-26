@@ -16,7 +16,7 @@ function sum(req, res) {
 
     const a = parseInt(req.query.a);
     const b = parseInt(req.query.b);
-    console.log(req.name);
+    console.log(req.name); 9
 
     res.json({ answer: a + b })
 }
