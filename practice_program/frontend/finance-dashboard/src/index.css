@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Date inputs in dark mode */
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, opacity;
+  transition-timing-function: ease;
+  transition-duration: 150ms;
+}
+
+/* Keep font mono for numbers */
+.tabular-nums {
+  font-family: 'DM Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Light mode overrides */
+html:not(.dark) {
+  --bg-primary: #f8fafc;
+  --bg-card: #ffffff;
+  --border: #e2e8f0;
+}
+
+html:not(.dark) body {
+  background-color: #f1f5f9;
+}
+
+html:not(.dark) .bg-slate-950 {
+  background-color: #f1f5f9;
+}
+
+html:not(.dark) .bg-slate-900 {
+  background-color: #ffffff;
+}
+
+html:not(.dark) .bg-slate-800 {
+  background-color: #f1f5f9;
+}
+
+html:not(.dark) .bg-slate-800\/30 {
+  background-color: rgba(241, 245, 249, 0.5);
+}
+
+html:not(.dark) .border-slate-800 {
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) .border-slate-700 {
+  border-color: #cbd5e1;
+}
+
+html:not(.dark) .text-white {
+  color: #0f172a;
+}
+
+html:not(.dark) .text-slate-200 {
+  color: #1e293b;
+}
+
+html:not(.dark) .text-slate-300 {
+  color: #334155;
+}
+
+html:not(.dark) .text-slate-400 {
+  color: #475569;
+}
+
+html:not(.dark) .text-slate-500 {
+  color: #64748b;
+}
+
+html:not(.dark) .bg-slate-950\/80 {
+  background-color: rgba(255, 255, 255, 0.9);
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Event Example</title>
+</head>
+
+<body>
+
+  <!-- UI -->
+  <h1>Hello World</h1>
+  <button id="btn">Click Me</button>
+
+  <!-- Script -->
+  <script>
+    const btn = document.getElementById("btn");
+
+    btn.addEventListener("click", () => {
+      const h1 = document.querySelector("h1");
+      h1.innerText = "Changed!";
+    });
+  </script>
+
+</body>
+
+</html>
