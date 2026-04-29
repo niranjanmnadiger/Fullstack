@@ -1,16 +1,8 @@
-let str = "niranjan";
+let arr = [1, 4, 6, 0, 1, 3, 5, 9]
 
-function palindrome(str) {
+function maxNum(arr) {
 
-    let newstr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
-    let revesre = newstr.split('').reverse().join('');
-
-    return revesre === newstr;
-
+    return Math.max(...arr);
 }
 
-console.log(palindrome("niranjan"));
-
-console.log(palindrome("madam"))
-
-
+console.log(maxNum(arr));
